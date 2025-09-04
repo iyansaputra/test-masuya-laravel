@@ -42,7 +42,14 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        $customer->update($request->validated());
+        $validatedData = $request->validated();
+    
+        $updateData = array_filter($validatedData, function ($value) {
+            return $value !== null && $value !== '';
+        });
+    
+        $customer->update($updateData);
+
         return new CustomerResource($customer);
     }
 

@@ -22,9 +22,9 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'nama_produk' => 'sometimes|required|string|max:255',
-            'harga'       => 'sometimes|required|numeric|min:0',
-            'stok'        => 'sometimes|required|integer|min:0',
+            'nama_produk' => 'nullable|string|max:255',
+            'harga'       => 'nullable|numeric|min:0',
+            'stok'        => 'nullable|integer|min:0',
         ];
     }
 }

@@ -43,7 +43,14 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $product->update($request->validated());
+        $validatedData = $request->validated();
+    
+        $updateData = array_filter($validatedData, function ($value) {
+             return $value !== null && $value !== '';
+        });
+    
+        $product->update($updateData);
+
         return new ProductResource($product);
     }
 

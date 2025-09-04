@@ -22,13 +22,13 @@ class UpdateCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_customer' => 'required|string|max:100',
-            'alamat_lengkap' => 'required|string|max:255',
-            'provinsi' => 'required|string|max:100',
-            'kota' => 'required|string|max:100',
-            'kecamatan' => 'required|string|max:100',
-            'kelurahan' => 'required|string|max:100',
-            'kode_pos' => 'required|numeric|min:0'
+            'nama_customer'  => 'nullable|string|max:100',
+            'alamat_lengkap' => 'nullable|string|max:255',
+            'provinsi'       => 'nullable|string|max:100',
+            'kota'           => 'nullable|string|max:100',
+            'kecamatan'      => 'nullable|string|max:100',
+            'kelurahan'      => 'nullable|string|max:100',
+            'kode_pos'       => 'nullable|numeric|min:0'
         ];
     }
 }
