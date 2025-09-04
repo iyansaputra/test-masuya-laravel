@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "5d718495-c1d4-49fd-9e52-eea841076e69",
+		"name": "test-masuya",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30206207"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/PRD001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"PRD001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "kode_produk",
+									"value": "pdr003",
+									"description": "Kode unik produk (wajib, alfanumerik)",
+									"type": "text"
+								},
+								{
+									"key": "nama_produk",
+									"value": "Coklat Batang",
+									"description": "Nama lengkap produk (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "15000",
+									"description": "Harga jual satuan (wajib, angka)",
+									"type": "text"
+								},
+								{
+									"key": "stok",
+									"value": "20",
+									"description": "Jumlah stok awal (wajib, angka)\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "nama_produk",
+									"value": "",
+									"description": "(Opsional) Nama baru untuk produk",
+									"type": "text"
+								},
+								{
+									"key": "harga",
+									"value": "16000",
+									"description": "(Opsional) Harga baru untuk produk",
+									"type": "text"
+								},
+								{
+									"key": "stok",
+									"value": "",
+									"description": "(Opsional) Stok baru untuk produk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/PDR003",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"PDR003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/pdr001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"pdr001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customer Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/CST001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"CST001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "kode_customer",
+									"value": "cst002",
+									"description": "Kode unik customer (wajib, alfanumerik)",
+									"type": "text"
+								},
+								{
+									"key": "nama_customer",
+									"value": "Putri Sabila",
+									"description": "Nama lengkap customer (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "alamat_lengkap",
+									"value": "Jl. Buntu no 9",
+									"description": "Alamat utama customer (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "provinsi",
+									"value": "Jawa Timur",
+									"description": "Provinsi (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "kota",
+									"value": "Surabaya",
+									"description": "Kota (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "kecamatan",
+									"value": "Sukolilo",
+									"description": "Kecamatan (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "kelurahan",
+									"value": "Merah Putih",
+									"description": "Kelurahan (wajib)",
+									"type": "text"
+								},
+								{
+									"key": "kode_pos",
+									"value": "00033",
+									"description": "Kode pos (wajib, angka)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								},
+								{
+									"key": "nama_customer",
+									"value": "",
+									"description": "(Opsional) Nama baru customer.",
+									"type": "text"
+								},
+								{
+									"key": "alamat_lengkap",
+									"value": "",
+									"description": "(Opsional) Alamat baru.",
+									"type": "text"
+								},
+								{
+									"key": "provinsi",
+									"value": "",
+									"description": "(Opsional) Provinsi baru.",
+									"type": "text"
+								},
+								{
+									"key": "kota",
+									"value": "",
+									"description": "(Opsional) Kota baru.",
+									"type": "text"
+								},
+								{
+									"key": "kecamatan",
+									"value": "",
+									"description": "(Opsional) Kecamatan baru.",
+									"type": "text"
+								},
+								{
+									"key": "kelurahan",
+									"value": "",
+									"description": "(Opsional) Kelurahan baru.",
+									"type": "text"
+								},
+								{
+									"key": "kode_pos",
+									"value": "10033",
+									"description": "(Opsional) Kode pos baru.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/CST002",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"CST002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/customers/CST001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"customers",
+								"CST001"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions/INV/2509/0003",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions",
+								"INV",
+								"2509",
+								"0003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "kode_customer",
+									"value": "cst002",
+									"description": "Kode customer yang melakukan transaksi (wajib).",
+									"type": "text"
+								},
+								{
+									"key": "items[0][kode_produk]\t",
+									"value": "pdr002",
+									"description": "Item pertama: Kode produk.",
+									"type": "text"
+								},
+								{
+									"key": "items[0][qty]\t",
+									"value": "2",
+									"description": "Item pertama: Jumlah yang dibeli.",
+									"type": "text"
+								},
+								{
+									"key": "items[1][kode_produk]",
+									"value": "pdr003",
+									"description": "Item kedua: Kode produk.",
+									"type": "text"
+								},
+								{
+									"key": "items[1][qty]",
+									"value": "5",
+									"description": "Item kedua: Jumlah yang dibeli.",
+									"type": "text"
+								},
+								{
+									"key": "items[1][disc_1]",
+									"value": "15",
+									"description": "Item kedua: Diskon (opsional).",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/ping",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
