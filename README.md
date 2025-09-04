@@ -22,7 +22,7 @@ Ini adalah submisi untuk tugas *technical test* posisi Backend Developer. Proyek
 
 1.  **Clone Repository**
     ```bash
-    git clone [Link ke Repository GitHub Anda]
+    git clone [[Link ke Repository GitHub Anda]](https://github.com/iyansaputra/test-masuya-laravel)
     cd TEST-MASUYA/backend
     ```
 
