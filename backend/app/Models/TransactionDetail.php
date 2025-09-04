@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
+use App\Models\TransactionHeader;
 
 class TransactionDetail extends Model
 {
+    use HasFactory;
     protected $table = 'transaction_details';
 
     protected $fillable = [
@@ -21,7 +25,7 @@ class TransactionDetail extends Model
         'jumlah',
     ];
 
-    public function header()
+    public function transactionHeader()
     {
         return $this->belongsTo(TransactionHeader::class, 'no_inv', 'no_inv');
     }

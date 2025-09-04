@@ -7,13 +7,14 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TransactionDetailResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'product' => new ProductResource($this->whenLoaded('product')),
+            'qty' => $this->qty,
+            'harga_satuan' => (float) $this->harga,
+            'harga_net' => (float) $this->harga_net,
+            'jumlah' => (float) $this->jumlah,
+        ];
     }
 }

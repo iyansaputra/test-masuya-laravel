@@ -11,7 +11,7 @@ class StoreTransactionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,24 @@ class StoreTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'kode_customer'         => 'required|string|exists:customers,kode_customer',
+            'tgl_inv'               => 'nullable|date',
+            'items'                 => 'required|array|min:1',
+            'items.*.kode_produk'   => 'required|string|exists:products,kode_produk',
+            'items.*.qty'           => 'required|integer|min:1',
+            // 'items.*.harga'         => 'nullable|numeric|min:0',
+            'items.*.disc_1'        => 'nullable|numeric|min:0|max:100',
+            'items.*.disc_2'        => 'nullable|numeric|min:0|max:100',
+            'items.*.disc_3'        => 'nullable|numeric|min:0|max:100',
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        if (!$this->tgl_inv) {
+            $this->merge([
+                'tgl_inv' => now()->format('Y-m-d')
+            ]);
+        }
     }
 }

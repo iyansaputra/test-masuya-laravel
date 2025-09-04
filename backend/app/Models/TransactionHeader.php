@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TransactionHeader extends Model
 {
+    use HasFactory;
+    
     protected $table = 'transaction_headers';
     protected $primaryKey = 'no_inv';
     public $incrementing = false;
@@ -28,5 +31,10 @@ class TransactionHeader extends Model
     public function details()
     {
         return $this->hasMany(TransactionDetail::class, 'no_inv', 'no_inv');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'no_inv';
     }
 }

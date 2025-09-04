@@ -14,6 +14,12 @@ class TransactionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'nomor_invoice' => $this->no_inv,
+            'tanggal' => $this->tgl_inv,
+            'total' => (float) $this->total,
+            'customer' => new CustomerResource($this->whenLoaded('customer')),
+            'items' => TransactionDetailResource::collection($this->whenLoaded('details')),
+        ];
     }
 }
