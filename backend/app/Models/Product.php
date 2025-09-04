@@ -18,8 +18,8 @@ class Product extends Model
         'stok'
     ];
 
-    public function transactionsDetails()
+    public function transactionDetails()
     {
-        return $this->hasMany(Transaction::class, 'kode_produk', 'kode_produk');
+        return $this->hasMany(\App\Models\TransactionDetail::class, 'kode_produk', 'kode_produk');
     }
 }

@@ -9,9 +9,9 @@ class UpdateProductRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -19,10 +19,12 @@ class UpdateProductRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'nama_produk' => 'sometimes|required|string|max:255',
+            'harga'       => 'sometimes|required|numeric|min:0',
+            'stok'        => 'sometimes|required|integer|min:0',
         ];
     }
 }

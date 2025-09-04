@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory; // 1. Tambahkan ini
 use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
+    use HasFactory; // 2. Tambahkan ini
+
     protected $table = 'customers';
     protected $primaryKey = 'kode_customer';
     public $incrementing = false;
@@ -21,9 +24,14 @@ class Customer extends Model
         'kelurahan',
         'kode_pos'
     ];
-
-    public function transactionsHeaders()
+    
+    public function transactions()
     {
-        return $this->hasMany(Transaction::class, 'kode_customer', 'kode_customer');
+        return $this->hasMany(TransactionHeader::class, 'kode_customer', 'kode_customer');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'kode_customer';
     }
 }

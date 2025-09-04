@@ -11,7 +11,7 @@ class UpdateCustomerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama_customer' => 'required|string|max:100',
+            'alamat_lengkap' => 'required|string|max:255',
+            'provinsi' => 'required|string|max:100',
+            'kota' => 'required|string|max:100',
+            'kecamatan' => 'required|string|max:100',
+            'kelurahan' => 'required|string|max:100',
+            'kode_pos' => 'required|numeric|min:0'
         ];
     }
 }
