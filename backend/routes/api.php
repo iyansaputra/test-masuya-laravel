@@ -13,4 +13,6 @@ Route::get('/ping', function () {
 // resource route
 Route::apiResource('products', ProductController::class);
 Route::apiResource('customers', CustomerController::class);
-Route::apiResource('transactions', TransactionController::class);
+Route::apiResource('transactions', TransactionController::class)->except(['show']);
+Route::get('/transactions/{transaction}', [TransactionController::class, 'show'])
+      ->where('transaction', '.*');
